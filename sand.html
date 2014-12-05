@@ -1,0 +1,35 @@
+<!DOCTYPE>
+<html>
+  <head><head>
+
+  <body>
+    <form id="sandForm">
+      <input id="sandInput" type="text"></input>
+      <button type="submit">Submit</button>
+    </form>
+
+    <div id="sandThings">
+    </div>
+  </body>
+
+  <script>
+    (function() {
+      document.getElementById('sandForm').onsubmit = function() {
+        var input = document.getElementById('sandInput').value;
+
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = input;
+
+        document.body.appendChild(s);
+
+        var displayContainer = document.getElementById('sandThings');
+        var p = document.createElement('p');
+        p.innerHTML = input;
+        displayContainer.appendChild(p);
+
+        return false;
+      };
+    }());
+  </script>
+</html>
